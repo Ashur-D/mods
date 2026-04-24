@@ -1,0 +1,39 @@
+{
+  "ThemeId": "MenuBox_Border",
+  "ForceFullScreen": false,
+  "Controls": {
+    "ToggleLookup": "F1",
+    "ToggleSearch": "LeftShift + F1",
+    "ScrollUp": "None",
+    "ScrollDown": "None",
+    "PageUp": "None",
+    "PageDown": "None",
+    "ToggleDebug": "None"
+  },
+  "ToggleLookupOnDoubleTap": false,
+  "ShowUnknownGiftTastes": true,
+  "ShowUncaughtFishSpawnRules": true,
+  "ShowUnknownRecipes": true,
+  "ShowPuzzleSolutions": true,
+  "HighlightUnrevealedGiftTastes": true,
+  "ShowGiftTastes": {
+    "Loved": true,
+    "Liked": true,
+    "Neutral": false,
+    "Disliked": false,
+    "Hated": false
+  },
+  "CollapseLargeFields": {
+    "Enabled": true,
+    "BuildingRecipes": 25,
+    "ItemRecipes": 25,
+    "NpcGiftTastes": 75
+  },
+  "ShowUnownedGifts": true,
+  "HideOnKeyUp": false,
+  "EnableTargetRedirection": true,
+  "EnableTileLookups": false,
+  "ScrollAmount": 160,
+  "ShowDataMiningFields": false,
+  "ShowInvalidRecipes": false
+}

@@ -1,0 +1,976 @@
+{
+  "Client": {
+    "EnableAutoUpdate": true,
+    "EnableAutoUpdateConfirmation": true,
+    "SupporterSecretToken": "VNcK1xz8YfnNCKtjV3jc0w==",
+    "Language": "en-us.xml",
+    "MinimizeToSystemTray": true,
+    "EnableSeamlessStartup": false,
+    "EnableSeamlessShutdown": false,
+    "ShouldShutdownOnGameExit": true,
+    "EnableNativeModule": true,
+    "Render": 1,
+    "IsFramePerSecondLimitEnabled": false,
+    "RenderFramePerSecond": 60.0,
+    "PollingRate": 10.0,
+    "EnableFeatureFlags": false,
+    "DefaultGameType": 1,
+    "LastConfiguredGame": 2,
+    "Themes": []
+  },
+  "Rise": {
+    "Overlay": {
+      "$type": "HunterPie.Core.Client.Configuration.Overlay.MHROverlayConfig, HunterPie.Core",
+      "BossesWidget": {
+        "$type": "HunterPie.Core.Client.Configuration.Overlay.Monster.MHRMonsterWidgetConfig, HunterPie.Core",
+        "Details": {
+          "AllowedPartGroups": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "AllowedAilments": [
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            99
+          ],
+          "Monsters": []
+        },
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 1200.0,
+          "Y": 100.0
+        },
+        "IsCompactModeEnabled": true,
+        "CompactModeColumnLimit": 5.0,
+        "Orientation": 1,
+        "DynamicResize": false,
+        "MaxWidth": 600.0,
+        "MinWidth": 400.0,
+        "IsTypeEnabled": true,
+        "IsHealthBarEnabled": true,
+        "IsHealthTextEnabled": true,
+        "IsStaminaBarEnabled": true,
+        "IsStaminaTextEnabled": true,
+        "IsWeaknessEnabled": true,
+        "IsTargetingEnabled": true,
+        "TargetMode": 0,
+        "ShowOnlyTarget": false,
+        "PartsAilmentsOrientation": 1,
+        "EnableParts": true,
+        "PartColumns": 3.0,
+        "HideUnknownParts": true,
+        "AutoHideParts": true,
+        "AutoHidePartsDelay": 15.0,
+        "EnableAilments": true,
+        "AutomaticallyHideAilments": true,
+        "AutoHideAilmentsDelay": 15.0
+      },
+      "PlayerHudWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "AbnormalityTray": {
+        "Trays": {
+          "Trays": []
+        }
+      },
+      "DamageMeterWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Position": {
+          "X": 0.0,
+          "Y": 400.0
+        },
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "ShouldHighlightMyself": false,
+        "ShouldBlurNames": false,
+        "ShouldShowOtomos": true,
+        "ShowOnlySelf": false,
+        "DpsCalculationStrategy": 1,
+        "ShouldShowDPS": true,
+        "ShouldShowDamage": true,
+        "IsStatusEnabled": true,
+        "IsAffinityEnabled": true,
+        "IsRawDamageEnabled": true,
+        "IsElementalDamageEnabled": true,
+        "ShouldShowPlots": true,
+        "IsPlotSlidingWindowEnabled": true,
+        "DamagePlotStrategy": 1,
+        "PlotSamplingInSeconds": 10.0,
+        "IsOldPlotDiscardingEnabled": false,
+        "PlotSlidingWindowInSeconds": 10.0,
+        "PlotLineSmoothing": 0.0,
+        "PlotLineThickness": 1.0,
+        "PlayerSelf": {
+          "Value": "#FFA74FFF"
+        },
+        "PlayerFirst": {
+          "Value": "#FFF24891"
+        },
+        "PlayerSecond": {
+          "Value": "#FF50C5B7"
+        },
+        "PlayerThird": {
+          "Value": "#FF49CFF5"
+        },
+        "PlayerFourth": {
+          "Value": "#FFFF8040"
+        },
+        "NpcColor": {
+          "Value": "#FFEBD5FF"
+        }
+      },
+      "DebugWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 100.0,
+          "Y": 100.0
+        }
+      },
+      "WirebugWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 840.0,
+          "Y": 920.0
+        },
+        "PatchInGameHud": false
+      },
+      "ActivitiesWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 5.0,
+          "Y": 935.0
+        },
+        "IsArgosyEnabled": true,
+        "IsTrainingDojoEnabled": true,
+        "IsMeowmastersEnabled": true,
+        "IsCohootEnabled": true,
+        "IsHarvestBoxEnabled": true,
+        "IsSteamworksEnabled": true,
+        "IsMaterialRetrievalEnabled": true,
+        "IsIngredientsCenterEnabled": true
+      },
+      "InsectGlaiveWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "ChargeBladeWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "DualBladesWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "SwitchAxeWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "LongSwordWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "ChatWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 1500.0,
+          "Y": 500.0
+        }
+      },
+      "ClockWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        },
+        "IsMoonPhaseEnabled": true
+      },
+      "PrimarySpecializedToolWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 950.0,
+          "Y": 400.0
+        },
+        "IsCompactModeEnabled": true,
+        "IsShowOnlyInHuntingZoneEnabled": true
+      },
+      "SecondarySpecializedToolWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 0.9,
+        "Position": {
+          "X": 1000.0,
+          "Y": 375.0
+        },
+        "IsCompactModeEnabled": true,
+        "IsShowOnlyInHuntingZoneEnabled": true
+      },
+      "ToggleDesignMode": {
+        "KeyCombo": "ScrollLock"
+      },
+      "HideWhenUnfocus": false
+    },
+    "RichPresence": {
+      "EnableRichPresence": true,
+      "ShowCharacterInfo": true,
+      "ShowMonsterHealth": true
+    }
+  },
+  "World": {
+    "Overlay": {
+      "$type": "HunterPie.Core.Client.Configuration.Overlay.MHWOverlayConfig, HunterPie.Core",
+      "BossesWidget": {
+        "$type": "HunterPie.Core.Client.Configuration.Overlay.Monster.MHWMonsterWidgetConfig, HunterPie.Core",
+        "Details": {
+          "AllowedPartGroups": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "AllowedAilments": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            99
+          ],
+          "Monsters": []
+        },
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 966.0,
+          "Y": 3.0
+        },
+        "IsCompactModeEnabled": false,
+        "CompactModeColumnLimit": 5.0,
+        "Orientation": 1,
+        "DynamicResize": false,
+        "MaxWidth": 600.0,
+        "MinWidth": 400.0,
+        "IsTypeEnabled": true,
+        "IsHealthBarEnabled": true,
+        "IsHealthTextEnabled": true,
+        "IsStaminaBarEnabled": true,
+        "IsStaminaTextEnabled": true,
+        "IsWeaknessEnabled": true,
+        "IsTargetingEnabled": true,
+        "TargetMode": 0,
+        "ShowOnlyTarget": true,
+        "PartsAilmentsOrientation": 1,
+        "EnableParts": true,
+        "PartColumns": 3.0,
+        "HideUnknownParts": true,
+        "AutoHideParts": false,
+        "AutoHidePartsDelay": 15.0,
+        "EnableAilments": true,
+        "AutomaticallyHideAilments": false,
+        "AutoHideAilmentsDelay": 15.0
+      },
+      "PlayerHudWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 0.8,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "AbnormalityTray": {
+        "Trays": {
+          "Trays": []
+        }
+      },
+      "DamageMeterWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Position": {
+          "X": -1.0,
+          "Y": 380.0
+        },
+        "Opacity": 1.0,
+        "Scale": 0.9,
+        "ShouldHighlightMyself": true,
+        "ShouldBlurNames": false,
+        "ShouldShowOtomos": true,
+        "ShowOnlySelf": false,
+        "DpsCalculationStrategy": 2,
+        "ShouldShowDPS": true,
+        "ShouldShowDamage": true,
+        "IsStatusEnabled": true,
+        "IsAffinityEnabled": true,
+        "IsRawDamageEnabled": true,
+        "IsElementalDamageEnabled": true,
+        "ShouldShowPlots": false,
+        "IsPlotSlidingWindowEnabled": true,
+        "DamagePlotStrategy": 0,
+        "PlotSamplingInSeconds": 10.0,
+        "IsOldPlotDiscardingEnabled": false,
+        "PlotSlidingWindowInSeconds": 10.0,
+        "PlotLineSmoothing": 0.0,
+        "PlotLineThickness": 1.0,
+        "PlayerSelf": {
+          "Value": "#FFA74FFF"
+        },
+        "PlayerFirst": {
+          "Value": "#FFF24891"
+        },
+        "PlayerSecond": {
+          "Value": "#FF50C5B7"
+        },
+        "PlayerThird": {
+          "Value": "#FF49CFF5"
+        },
+        "PlayerFourth": {
+          "Value": "#FFFF8040"
+        },
+        "NpcColor": {
+          "Value": "#FFEBD5FF"
+        }
+      },
+      "DebugWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 100.0,
+          "Y": 100.0
+        }
+      },
+      "WirebugWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 840.0,
+          "Y": 920.0
+        },
+        "PatchInGameHud": false
+      },
+      "ActivitiesWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 0.0,
+          "Y": 493.0
+        },
+        "IsArgosyEnabled": true,
+        "IsTrainingDojoEnabled": true,
+        "IsMeowmastersEnabled": true,
+        "IsCohootEnabled": true,
+        "IsHarvestBoxEnabled": true,
+        "IsSteamworksEnabled": true,
+        "IsMaterialRetrievalEnabled": true,
+        "IsIngredientsCenterEnabled": true
+      },
+      "InsectGlaiveWidget": {
+        "Initialize": true,
+        "Enabled": false,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "ChargeBladeWidget": {
+        "Initialize": true,
+        "Enabled": false,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "DualBladesWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 45.0,
+          "Y": 67.0
+        }
+      },
+      "SwitchAxeWidget": {
+        "Initialize": true,
+        "Enabled": false,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "LongSwordWidget": {
+        "Initialize": true,
+        "Enabled": false,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "ChatWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 1500.0,
+          "Y": 500.0
+        }
+      },
+      "ClockWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": true,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 1649.0,
+          "Y": 5.0
+        },
+        "IsMoonPhaseEnabled": true
+      },
+      "PrimarySpecializedToolWidget": {
+        "Initialize": true,
+        "Enabled": false,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 712.0,
+          "Y": 0.0
+        },
+        "IsCompactModeEnabled": false,
+        "IsShowOnlyInHuntingZoneEnabled": true
+      },
+      "SecondarySpecializedToolWidget": {
+        "Initialize": true,
+        "Enabled": false,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 712.0,
+          "Y": 48.0
+        },
+        "IsCompactModeEnabled": false,
+        "IsShowOnlyInHuntingZoneEnabled": true
+      },
+      "ToggleDesignMode": {
+        "KeyCombo": "ScrollLock"
+      },
+      "HideWhenUnfocus": false
+    },
+    "RichPresence": {
+      "EnableRichPresence": true,
+      "ShowCharacterInfo": true,
+      "ShowMonsterHealth": true
+    }
+  },
+  "Wilds": {
+    "Overlay": {
+      "$type": "HunterPie.Core.Client.Configuration.Overlay.MHWildsOverlayConfig, HunterPie.Core",
+      "BossesWidget": {
+        "$type": "HunterPie.Core.Client.Configuration.Overlay.Monster.MHWildsMonsterWidgetConfig, HunterPie.Core",
+        "Details": {
+          "AllowedPartGroups": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "AllowedAilments": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            99
+          ],
+          "Monsters": []
+        },
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 1200.0,
+          "Y": 100.0
+        },
+        "IsCompactModeEnabled": true,
+        "CompactModeColumnLimit": 5.0,
+        "Orientation": 1,
+        "DynamicResize": false,
+        "MaxWidth": 600.0,
+        "MinWidth": 400.0,
+        "IsTypeEnabled": true,
+        "IsHealthBarEnabled": true,
+        "IsHealthTextEnabled": true,
+        "IsStaminaBarEnabled": true,
+        "IsStaminaTextEnabled": true,
+        "IsWeaknessEnabled": true,
+        "IsTargetingEnabled": true,
+        "TargetMode": 0,
+        "ShowOnlyTarget": false,
+        "PartsAilmentsOrientation": 1,
+        "EnableParts": true,
+        "PartColumns": 3.0,
+        "HideUnknownParts": true,
+        "AutoHideParts": true,
+        "AutoHidePartsDelay": 15.0,
+        "EnableAilments": true,
+        "AutomaticallyHideAilments": true,
+        "AutoHideAilmentsDelay": 15.0
+      },
+      "PlayerHudWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "AbnormalityTray": {
+        "Trays": {
+          "Trays": []
+        }
+      },
+      "DamageMeterWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Position": {
+          "X": 0.0,
+          "Y": 400.0
+        },
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "ShouldHighlightMyself": false,
+        "ShouldBlurNames": false,
+        "ShouldShowOtomos": true,
+        "ShowOnlySelf": false,
+        "DpsCalculationStrategy": 1,
+        "ShouldShowDPS": true,
+        "ShouldShowDamage": true,
+        "IsStatusEnabled": true,
+        "IsAffinityEnabled": true,
+        "IsRawDamageEnabled": true,
+        "IsElementalDamageEnabled": true,
+        "ShouldShowPlots": true,
+        "IsPlotSlidingWindowEnabled": true,
+        "DamagePlotStrategy": 1,
+        "PlotSamplingInSeconds": 10.0,
+        "IsOldPlotDiscardingEnabled": false,
+        "PlotSlidingWindowInSeconds": 10.0,
+        "PlotLineSmoothing": 0.0,
+        "PlotLineThickness": 1.0,
+        "PlayerSelf": {
+          "Value": "#FFA74FFF"
+        },
+        "PlayerFirst": {
+          "Value": "#FFF24891"
+        },
+        "PlayerSecond": {
+          "Value": "#FF50C5B7"
+        },
+        "PlayerThird": {
+          "Value": "#FF49CFF5"
+        },
+        "PlayerFourth": {
+          "Value": "#FFFF8040"
+        },
+        "NpcColor": {
+          "Value": "#FFEBD5FF"
+        }
+      },
+      "DebugWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 100.0,
+          "Y": 100.0
+        }
+      },
+      "WirebugWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 840.0,
+          "Y": 920.0
+        },
+        "PatchInGameHud": false
+      },
+      "ActivitiesWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 5.0,
+          "Y": 935.0
+        },
+        "IsArgosyEnabled": true,
+        "IsTrainingDojoEnabled": true,
+        "IsMeowmastersEnabled": true,
+        "IsCohootEnabled": true,
+        "IsHarvestBoxEnabled": true,
+        "IsSteamworksEnabled": true,
+        "IsMaterialRetrievalEnabled": true,
+        "IsIngredientsCenterEnabled": true
+      },
+      "InsectGlaiveWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "ChargeBladeWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "DualBladesWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "SwitchAxeWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "LongSwordWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        }
+      },
+      "ChatWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 1500.0,
+          "Y": 500.0
+        }
+      },
+      "ClockWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 50.0,
+          "Y": 0.0
+        },
+        "IsMoonPhaseEnabled": true
+      },
+      "PrimarySpecializedToolWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 1.0,
+        "Position": {
+          "X": 950.0,
+          "Y": 400.0
+        },
+        "IsCompactModeEnabled": true,
+        "IsShowOnlyInHuntingZoneEnabled": true
+      },
+      "SecondarySpecializedToolWidget": {
+        "Initialize": true,
+        "Enabled": true,
+        "HideWhenUiOpen": false,
+        "Opacity": 1.0,
+        "Scale": 0.9,
+        "Position": {
+          "X": 1000.0,
+          "Y": 375.0
+        },
+        "IsCompactModeEnabled": true,
+        "IsShowOnlyInHuntingZoneEnabled": true
+      },
+      "ToggleDesignMode": {
+        "KeyCombo": "ScrollLock"
+      },
+      "HideWhenUnfocus": false
+    },
+    "RichPresence": {
+      "EnableRichPresence": true,
+      "ShowCharacterInfo": true,
+      "ShowMonsterHealth": true
+    }
+  },
+  "Overlay": {
+    "IsEnabled": true,
+    "HideWhenUnfocus": true,
+    "ToggleVisibility": {
+      "KeyCombo": "Ctrl+Alt+O"
+    },
+    "ToggleDesignMode": {
+      "KeyCombo": "Shift+N"
+    }
+  },
+  "Development": {
+    "IsOverlayManagerDebugEnabled": false,
+    "IsRenderTimeEnabled": false,
+    "MockBossesWidget": false,
+    "MockDamageWidget": false,
+    "MockAbnormalityWidget": false,
+    "MockWirebugWidget": false,
+    "MockActivitiesWidget": false,
+    "MockChatWidget": false,
+    "MockSpecializedToolWidget": false,
+    "MockPlayerHudWidget": false,
+    "MockInsectGlaiveWidget": false,
+    "MockChargeBladeWidget": false,
+    "MockSwitchAxeWidget": false,
+    "MockLongSwordWidget": false,
+    "MockDualBladesWidget": false,
+    "MockClockWidget": false,
+    "PoogieApiHost": "",
+    "ClientLogLevel": 1,
+    "PresentationSourceLevel": 0
+  },
+  "Version": 4
+}

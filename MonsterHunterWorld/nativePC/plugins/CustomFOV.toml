@@ -1,0 +1,82 @@
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~#  CustomFOV 2.0  #~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# by noderoo                                                   2026-02-19 #
+# Mod page: https://www.nexusmods.com/monsterhunterworld/mods/6873        #
+
+# Monster Hunter World uses many different camera presets for different   #
+# situations. This plugin allows you to adjust various camera parameters  #
+# in a way that naturally preserves temporary effects.                    #
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~#  Camera Settings  #~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# The settings in this section apply to all contexts. To add overrides    #
+# for specific contexts only, check the "Overrides" section.              #
+
+# Adjust the field of view (Vanilla: 53). MHW uses vertical FOV values.   #
+
+fov = 75
+
+# Scale the distance between the camera and the hunter.                   #
+
+distance = 0.75
+
+# Scale the height of the camera above the ground.                        #
+
+height = 1.0
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#  Overrides  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# The plugin uses three different camera contexts:                        #
+# - hub       Astera, Research Base, Seliana and Gathering Hubs           #
+# - room      All player rooms in Astera and Seliana                      #
+# - quest     On a quest or expedition, includes the Training Area        #
+
+# To override a camera setting for one of these contexts, add it with     #
+# "hub.", "room." or "quest." in front, like the example below:           #
+
+quest.distance = 1.0
+
+# A special override to remove the camera shift while in player rooms.    #
+
+disable_room_shift = true
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#  Changelog  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+# Version 2.0 (2026-02-19)                                                #
+# - add overrides for different camera contexts
+# - use multipliers for distance and height instead of absolute values
+# - automatically reload the config file when changes to it are made
+# - remove shift and effect options, add option to disable room shift
+# - switch from MinHook to safetyhook
+
+# Version 1.6 (2024-10-07)                                                #
+# - fix function addresses following update to 15.23.00 (421810)
+
+# Version 1.5 (2024-06-05)                                                #
+# - fix function addresses following update to 15.22.00 (421740)
+
+# Version 1.4 (2023-11-16)                                                #
+# - add more lenient version check to automatically support game
+#   updates with no breaking changes, both for vanilla and ICE.
+# - fix: only log success message after attaching & detaching plugin
+
+# Version 1.3 (2023-11-15)                                                #
+# - add support for version 15.21 (421652)
+
+# Version 1.2 (2023-11-10)                                                #
+# - add sane default config values if config file is missing
+# - add support for ICE build 314015
+# - fix ApplyQueued error by adding new thread freeze method
+
+# Version 1.1 (2023-11-06)                                                #
+# - add check for version 15.20.00 (421631)
+# - add live reload toggle (reparse config file during loading screens)
+# - add options for camera height and shift
+# - switch to more intuitive *.target and *.effects options
+# - add examples + more information to config
+# - transform fov before scaling (fixes scaling at high fov)
+# - log all camera changes on the same line
+
+# Version 1.0 (2023-10-31)                                                #

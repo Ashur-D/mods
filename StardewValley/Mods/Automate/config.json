@@ -1,0 +1,21 @@
+{
+  "Enabled": true,
+  "AutomationInterval": 60,
+  "Controls": {
+    "ToggleOverlay": "U"
+  },
+  "ConnectorNames": [
+    "(O)328",
+    "(O)405"
+  ],
+  "JunimoHutBehaviorForGems": "AutoDetect",
+  "JunimoHutBehaviorForFertilizer": "AutoDetect",
+  "JunimoHutBehaviorForSeeds": "AutoDetect",
+  "JunimoHutBehaviors": {},
+  "CollectTreeMoss": true,
+  "WarnForMissingBridgeMod": true,
+  "ChestsEnabledByDefault": true,
+  "ChestOverrides": {},
+  "MachineOverrides": {},
+  "MinMinutesForFairyDust": 20
+}
