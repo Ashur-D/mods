@@ -1,0 +1,692 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Osmi</name>
+    </assembly>
+    <members>
+        <member name="P:Osmi.Game.CharmUtil.CharmsPane">
+            <summary>
+            Gets reference to the Charms UI GameObject
+            </summary>
+        </member>
+        <member name="P:Osmi.Game.CharmUtil.CharmsPaneOpen">
+            <summary>
+            Gets whether the Charms UI is opened
+            </summary>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.UpdateCharm">
+            <summary>
+            Applies the changes to the charms. Also cause the player to restore to max health.
+            Calls <see cref="M:Osmi.Game.CharmUtil.UpdateCharmUI"/> internally.
+            </summary>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.GotCharm(System.Int32)">
+            <summary>
+            Gets whether the player has got specified charm.
+            </summary>
+            <param name="charm">Charm ID</param>
+            <returns>Whether the player has got the charm</returns>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.EquippedCharm(System.Int32)">
+            <summary>
+            Gets whether the player has equipped specified charm.
+            </summary>
+            <param name="charm">Charm ID</param>
+            <returns>Whether the player has equipped the charm</returns>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.GetCharmCost(System.Int32)">
+            <summary>
+            Gets the notch cost of specified charm.
+            </summary>
+            <param name="charm">Charm ID</param>
+            <returns>Notch cost of specified charm</returns>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.EquipCharm(System.Int32)">
+            <summary>
+            Equips specified charm for the player.
+            The operation fails if the charm is already equipped,
+            or all charm slots are taken up.
+            </summary>
+            <param name="charm">Charm ID</param>
+            <returns>Whether the operation is successful</returns>
+            <remarks>The caller should call <see cref="M:Osmi.Game.CharmUtil.UpdateCharm"/> after changes to charms</remarks>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.UnequipCharm(System.Int32)">
+            <summary>
+            Unequips specified charm for the player.
+            The operation fails if the charm is not equipped.
+            </summary>
+            <param name="charm">Charm ID</param>
+            <returns>Whether the operation is successful</returns>
+            <remarks>The caller should call <see cref="M:Osmi.Game.CharmUtil.UpdateCharm"/> after changes to charms</remarks>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.EquipCharms(System.Int32[])">
+            <summary>
+            Equips a series of charms for the player.
+            </summary>
+            <param name="charms">Charm IDs</param>
+            <returns>Whether all operations are successful</returns>
+            <remarks>The caller should call <see cref="M:Osmi.Game.CharmUtil.UpdateCharm"/> after changes to charms</remarks>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.UnequipCharms(System.Int32[])">
+            <summary>
+            Unequips a series of charms for the player.
+            </summary>
+            <param name="charms">Charm IDs</param>
+            <returns>Whether all operations are successful</returns>
+            <remarks>The caller should call <see cref="M:Osmi.Game.CharmUtil.UpdateCharm"/> after changes to charms</remarks>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.UnequipAllCharms">
+            <summary>
+            Unequipps all charms the player are equipping.
+            </summary>
+            <remarks>The caller should call <see cref="M:Osmi.Game.CharmUtil.UpdateCharm"/> after changes to charms</remarks>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.GotCharm(Osmi.Game.Charm)">
+            <inheritdoc cref="M:Osmi.Game.CharmUtil.GotCharm(System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.EquippedCharm(Osmi.Game.Charm)">
+            <inheritdoc cref="M:Osmi.Game.CharmUtil.EquippedCharm(System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.GetCharmCost(Osmi.Game.Charm)">
+            <inheritdoc cref="M:Osmi.Game.CharmUtil.GetCharmCost(System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.EquipCharm(Osmi.Game.Charm)">
+            <inheritdoc cref="M:Osmi.Game.CharmUtil.EquipCharm(System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.UnequipCharm(Osmi.Game.Charm)">
+            <inheritdoc cref="M:Osmi.Game.CharmUtil.UnequipCharm(System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.EquipCharms(Osmi.Game.Charm[])">
+            <inheritdoc cref="M:Osmi.Game.CharmUtil.EquipCharms(System.Int32[])"/>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.UnequipCharms(Osmi.Game.Charm[])">
+            <inheritdoc cref="M:Osmi.Game.CharmUtil.UnequipCharms(System.Int32[])"/>
+        </member>
+        <member name="M:Osmi.Game.CharmUtil.UpdateCharmUI">
+            <summary>
+            Updates Charms related UI to proper state.
+            Called by <see cref="M:Osmi.Game.CharmUtil.UpdateCharm"/> internally.
+            </summary>
+        </member>
+        <member name="E:Osmi.OsmiHooks.GameInitializedHook">
+            <summary>
+            Called when entering main menu for the first time.
+            Hooking new methods after that will result in immediate invocation
+            </summary>
+        </member>
+        <member name="E:Osmi.OsmiHooks.MenuBuildHook">
+            <summary>
+            Equivalent to <see cref="E:UIManager.EditMenus"/>,
+            but ensure to be called after MAPI finished building menus
+            </summary>
+        </member>
+        <member name="E:Osmi.OsmiHooks.AfterEnterSaveHook">
+            <summary>
+            Called after entering a new or existing save,
+            ensures to be after <see cref="E:On.HeroController.Start"/>
+            </summary>
+        </member>
+        <member name="E:Osmi.OsmiHooks.SceneChangeHook">
+            <summary>
+            Equivalent to
+            <see cref="E:UnityEngine.SceneManagement.SceneManager.activeSceneChanged"/>,
+            but catch all exceptions
+            </summary>
+        </member>
+        <member name="T:Osmi.OsmiHooks.HitEnemyHandler">
+            <param name="hm">Health manager that receives the hit</param>
+            <param name="hit">Hit instance</param>
+            <param name="invincible">Invincibility state passed by vanilla code or last hooked method</param>
+            <returns>New invincibility state</returns>
+        </member>
+        <member name="E:Osmi.OsmiHooks.HitEnemyHook">
+            <summary>
+            Called when deciding whether an enemy is invincible to a hit or not
+            </summary>
+        </member>
+        <member name="E:Osmi.OsmiHooks.GamePauseHook">
+            <summary>
+            Called when game is about to pause <br />
+            <see cref="P:UnityEngine.Time.timeScale"/> is still 1f when called
+            </summary>
+        </member>
+        <member name="E:Osmi.OsmiHooks.GameUnpauseHook">
+            <summary>
+            Called when game is about to unpause <br />
+            <see cref="P:UnityEngine.Time.timeScale"/> is still 0f when called
+            </summary>
+        </member>
+        <member name="E:Osmi.OsmiHooks.PlayerDeathHook">
+            <summary>
+            Called when the Player dies. Unlike <see cref="E:Modding.ModHooks.BeforePlayerDeadHook"/>,
+            dream death will also trigger this
+            </summary>
+        </member>
+        <member name="T:Osmi.SimpleFSM.FSMStateAttribute">
+            <summary>
+            Marks the method attached to as a state method.
+            A state method must return an <see cref="T:System.Collections.IEnumerator"/>.
+            </summary>
+        </member>
+        <member name="T:Osmi.SimpleFSM.FSMGlobalTransitionAttribute">
+            <summary>
+            Marks a global transition to the state method attached to.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.FSMGlobalTransitionAttribute.#ctor(System.String)">
+            <param name="onEvent">The name of the event</param>
+        </member>
+        <member name="T:Osmi.SimpleFSM.FSMTransitionAttribute">
+            <summary>
+            Marks a transition from the state method attached to.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.FSMTransitionAttribute.#ctor(System.String,System.String)">
+            <param name="onEvent">The name of the event that triggers this transition</param>
+            <param name="toState">The name of the state to transit to</param>
+        </member>
+        <member name="T:Osmi.SimpleFSM.SimpleFSMExtensions">
+            <summary>
+            Extension methods for easier interaction with <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>.
+            </summary>
+        </member>
+        <member name="F:Osmi.SimpleFSM.SimpleFSMExtensions.PROXY_PMFSM_NAME">
+            <summary>
+            Constant of name of the proxy <see cref="T:PlayMakerFSM"/> created by
+            <see cref="M:Osmi.SimpleFSM.SimpleFSMExtensions.CreatePlayMakerFSMEventProxy(UnityEngine.GameObject,HutongGames.PlayMaker.FsmEvent)"/>.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSMExtensions.LocateSimpleFSMs(UnityEngine.GameObject,System.String)">
+            <summary>
+            Locates <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s with the given name attached to
+            the given <see cref="T:UnityEngine.GameObject"/>.
+            </summary>
+            <param name="self" />
+            <param name="name">The name of the fsms</param>
+            <returns><see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s with given name attached to given <see cref="T:UnityEngine.GameObject"/></returns>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSMExtensions.LocateSimpleFSM(UnityEngine.GameObject,System.String)">
+            <summary>
+            Locates the first <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> with the given name attached
+            to the given <see cref="T:UnityEngine.GameObject"/>.
+            </summary>
+            <param name="self" />
+            <param name="name">The name of the fsms</param>
+            <returns>The <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> with given name attached to given <see cref="T:UnityEngine.GameObject"/></returns>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSMExtensions.SendSimpleFSMEvent(UnityEngine.GameObject,System.String,System.Boolean)">
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSM.SendEventToGameObject(UnityEngine.GameObject,System.String,System.Boolean)"/>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSMExtensions.SendSimpleFSMEvent(UnityEngine.GameObject,System.String,System.String,System.Boolean)">
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSM.SendEventToGameObject(UnityEngine.GameObject,System.String,System.String,System.Boolean)"/>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSMExtensions.CreatePlayMakerFSMEventProxy(UnityEngine.GameObject,System.String)">
+            <param name="self" />
+            <param name="fsmEvent">The name of the <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to proxy</param>
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSMExtensions.CreatePlayMakerFSMEventProxy(UnityEngine.GameObject,HutongGames.PlayMaker.FsmEvent)"/>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSMExtensions.CreatePlayMakerFSMEventProxy(UnityEngine.GameObject,HutongGames.PlayMaker.FsmEvent)">
+            <summary>
+            Creates or enables a proxy <see cref="T:PlayMakerFSM"/> that forwards the
+            given <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s on the given
+            <see cref="T:UnityEngine.GameObject"/>. In most case, the default forwarding mechanic
+            of <see cref="T:HutongGames.PlayMaker.FsmEvent"/> is enough, only use this when you need to
+            fill in some fields or parameters of <see cref="T:PlayMakerFSM"/> type.
+            </summary>
+            <param name="self" />
+            <param name="fsmEvent">The <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to proxy</param>
+            <returns>The proxy <see cref="T:PlayMakerFSM"/></returns>
+        </member>
+        <member name="T:Osmi.SimpleFSM.SimpleFSMInfo">
+            <summary>
+            Information about a <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> class.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSMInfo.StateNames">
+            <summary>
+            Names of the states of the <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> class.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSMInfo.GlobalTransitions">
+            <summary>
+            All global trasitions defined in the <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> class.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSMInfo.Transitions">
+            <summary>
+            Transitions defined between states of the <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> class.
+            </summary>
+        </member>
+        <member name="T:Osmi.SimpleFSM.SimpleFSMState">
+            <summary>
+            Execution state of a <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>.
+            </summary>
+        </member>
+        <member name="F:Osmi.SimpleFSM.SimpleFSMState.Running">
+            <summary>
+            The fsm is running.
+            </summary>
+        </member>
+        <member name="F:Osmi.SimpleFSM.SimpleFSMState.Waiting">
+            <summary>
+            The fsm is waiting for a coroutine to finish.
+            </summary>
+        </member>
+        <member name="F:Osmi.SimpleFSM.SimpleFSMState.Suspended">
+            <summary>
+            The fsm is suspended as its current state has finished execution.
+            </summary>
+        </member>
+        <member name="F:Osmi.SimpleFSM.SimpleFSMState.Disabled">
+            <summary>
+            The fsm has been disabled.
+            </summary>
+        </member>
+        <member name="T:Osmi.SimpleFSM.SimpleFSM">
+            <summary>
+            An implementation of finite state machine.
+            <see cref="T:Osmi.ChildRefs.ChildRef"/> is automatically applied.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.AcceptPMFSMEvents">
+            <summary>
+            Whether the fsm accepts <see cref="T:HutongGames.PlayMaker.FsmEvent"/>.
+            If returns <see langword="false"/>, sending <see cref="T:HutongGames.PlayMaker.FsmEvent"/>
+            will become no-op. Defaults to <see langword="false"/>.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.RestartOnEnable">
+            <summary>
+            Whether the fsm should restart (reset to <see cref="M:Osmi.SimpleFSM.SimpleFSM.Init"/> state)
+            on <see cref="M:Osmi.SimpleFSM.SimpleFSM.OnEnable"/>. Defaults to <see langword="false"/>.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.InitChildRefsOnAwake">
+            <summary>
+            Whether the child refs should be initialized in <see cref="M:Osmi.SimpleFSM.SimpleFSM.Awake"/>.
+            Otherwise, they will be initialized in <see cref="M:Osmi.SimpleFSM.SimpleFSM.Start"/>.
+            Defaults to <see langword="false"/>.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Init">
+            <summary>
+            The default state, does nothing.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.NoOp">
+            <summary>
+            Utility method for making states that do nothing.
+            </summary>
+            <returns>An enumerator that instantly breaks</returns>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.Type">
+            <summary>
+            <see cref="T:System.Type"/> of this instance.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.Name">
+            <summary>
+            Name of the <see cref="T:System.Type"/> of this instance.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.Info">
+            <summary>
+            <see cref="T:Osmi.SimpleFSM.SimpleFSMInfo"/> of the <see cref="T:System.Type"/> of this instance.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.State">
+            <summary>
+            Execution state of the fsm.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.ActiveStateName">
+            <summary>
+            Name of the active state of the fsm.
+            </summary>
+        </member>
+        <member name="P:Osmi.SimpleFSM.SimpleFSM.CurrentTransitions">
+            <summary>
+            Transitions of active state of the fsm.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Iterate">
+            <summary>
+            <para>
+            Iterates the fsm for one step.
+            </para>
+            <para>
+            It is safe, while not recommended to use this method, please consider
+            refactoring your fsm if you think you need this method.
+            </para>
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Iterate(System.Int32)">
+            <summary>
+            <para>
+            Iterates the fsm for given steps
+            </para>
+            <para>
+            It is safe, while highly not recommended to use this method, please
+            consider refactoring your fsm if you think you need this method.
+            </para>
+            </summary>
+            <param name="steps">Steps to iterate</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown if step is less or equal than zero</exception>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SetState(System.String,System.Object[])">
+            <summary>
+            <para>
+            Force set the current state of the fsm.
+            </para>
+            <para>
+            It is safe, while not recommended to use this method. If you think you
+            need this method, please consider refactoring your fsm, unless you need
+            the additional arguments functionality.
+            </para>
+            </summary>
+            <param name="stateName">The name of the state to set</param>
+            <param name="args">Additional arguments to pass to the state method</param>
+            <exception cref="T:System.ArgumentException">
+            Thrown when there is not a state with given name
+            </exception>
+            <exception cref="T:System.Exception">
+            Thrown when arguments passed in does not fit with the state method
+            </exception>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Reset">
+            <summary>
+            Set to <see cref="M:Osmi.SimpleFSM.SimpleFSM.Init"/> state.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendEvent(System.String)">
+            <summary>
+            Sends an event to the fsm.
+            </summary>
+            <param name="eventName">The event to send</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendPMFSMEvent(HutongGames.PlayMaker.FsmEvent)">
+            <summary>
+            Sends a <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to the fsm.
+            This method is a no-op if <see cref="P:Osmi.SimpleFSM.SimpleFSM.AcceptPMFSMEvents"/>
+            returns <see langword="false"/>.
+            </summary>
+            <param name="fsmEvent">The <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to send</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendEventDelayed(System.String,System.Single)">
+            <summary>
+            Sends an event to the fsm after given time.
+            Note that the time is affected by <see cref="P:UnityEngine.Time.timeScale"/>.
+            </summary>
+            <param name="eventName">The event to send</param>
+            <param name="seconds">Time before the event is sent in seconds</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendEventDelayed(System.String,UnityEngine.YieldInstruction)">
+            <summary>
+            Sends an event to the fsm after waiting for the given
+            <see cref="T:UnityEngine.YieldInstruction"/>.
+            </summary>
+            <param name="eventName">The event to send</param>
+            <param name="inst">
+            The <see cref="T:UnityEngine.YieldInstruction"/> to wait for
+            </param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendEventDelayed(System.String,System.Collections.IEnumerator)">
+            <summary>
+            Sends an event to the fsm after waiting for the
+            given <see cref="T:System.Collections.IEnumerator"/>.
+            </summary>
+            <param name="eventName">The event to send</param>
+            <param name="enumerator">The <see cref="T:System.Collections.IEnumerator"/> to wait for</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Awake">
+            <summary>
+            To use the unity message methods that are already declared in the
+            <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> base class, do the following:
+            <code>
+            protected new void Awake() { // Same for other messages
+            	// Something to do before base class method
+            	base.Awake();
+            	// Something to do after base class method
+            }
+            </code>
+            Do NOT omit the call to base class method unless you know what you
+            are doing.
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Start">
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSM.Awake"/>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.OnEnable">
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSM.Awake"/>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.OnDisable">
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSM.Awake"/>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.OnDestroy">
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSM.Awake"/>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Update">
+            <inheritdoc cref="M:Osmi.SimpleFSM.SimpleFSM.Awake"/>
+            <remarks>
+            You CAN omit the call to this and call <see cref="M:Osmi.SimpleFSM.SimpleFSM.Iterate"/> in
+            FixedUpdate to make the fsm to run regardless of frame rate
+            and time scale. There is no virtual property to accomplish this
+            for performance reason.
+            </remarks>
+        </member>
+        <member name="F:Osmi.SimpleFSM.SimpleFSM.FINISHED">
+            <summary>
+            "FINISHED" event constant
+            </summary>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Precompile``1">
+            <summary>
+            Precompile the <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> class <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The simple fsm class to precompile</typeparam>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.Precompile(System.Type)">
+            <summary>
+            Precompile the <see cref="T:Osmi.SimpleFSM.SimpleFSM"/> class <paramref name="t"/>.
+            </summary>
+            <param name="t">The simple fsm class to precompile</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.BroadcastEvent(System.String,System.Boolean)">
+            <summary>
+            Broadcast the event to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s.
+            </summary>
+            <param name="eventName">The event to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.BroadcastPMFSMEvent(HutongGames.PlayMaker.FsmEvent,System.Boolean)">
+            <summary>
+            Broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s.
+            </summary>
+            <param name="fsmEvent">The <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.BroadcastEvent(System.String,System.String,System.Boolean)">
+            <summary>
+            Broadcast the event to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s with given name.
+            </summary>
+            <param name="fsmName">The name of fsms to broadcast the event</param>
+            <param name="eventName">The event to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.BroadcastPMFSMEvent(System.String,HutongGames.PlayMaker.FsmEvent,System.Boolean)">
+            <summary>
+            Broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s with given name.
+            </summary>
+            <param name="fsmName">The name of fsms to broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/></param>
+            <param name="fsmEvent">The <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendEventToGameObject(UnityEngine.GameObject,System.String,System.Boolean)">
+            <summary>
+            Broadcast the event to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s attached
+            to the given <see cref="T:UnityEngine.GameObject"/>.
+            </summary>
+            <param name="go">The <see cref="T:UnityEngine.GameObject"/> to broadcast the event</param>
+            <param name="eventName">The event to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendPMFSMEventToGameObject(UnityEngine.GameObject,HutongGames.PlayMaker.FsmEvent,System.Boolean)">
+            <summary>
+            Broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s
+            attached to the given <see cref="T:UnityEngine.GameObject"/>.
+            </summary>
+            <param name="go">The <see cref="T:UnityEngine.GameObject"/> to broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/></param>
+            <param name="fsmEvent">The <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendEventToGameObject(UnityEngine.GameObject,System.String,System.String,System.Boolean)">
+            <summary>
+            Broadcast the event to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s with given name
+            attached to the given <see cref="T:UnityEngine.GameObject"/>.
+            </summary>
+            <param name="go">The <see cref="T:UnityEngine.GameObject"/> to broadcast the event</param>
+            <param name="fsmName">The name of fsms to broadcast the event</param>
+            <param name="eventName">The event to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.SimpleFSM.SimpleFSM.SendPMFSMEventToGameObject(UnityEngine.GameObject,System.String,HutongGames.PlayMaker.FsmEvent,System.Boolean)">
+            <summary>
+            Broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to all <see cref="T:Osmi.SimpleFSM.SimpleFSM"/>s
+            with given name attached to the given <see cref="T:UnityEngine.GameObject"/>.
+            </summary>
+            <param name="go">The <see cref="T:UnityEngine.GameObject"/> to broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/></param>
+            <param name="fsmName">The name of fsms to broadcast the <see cref="T:HutongGames.PlayMaker.FsmEvent"/></param>
+            <param name="fsmEvent">The <see cref="T:HutongGames.PlayMaker.FsmEvent"/> to broadcast</param>
+            <param name="includeInactive">Whether to broadcast to inactive fsms as well</param>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetVersion(System.Reflection.Assembly)">
+            <summary>
+            Gets the version of the specified assembly
+            </summary>
+            <param name="self">The assembly to get version from</param>
+            <returns>Version number in the format of X.X.X.X</returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetInformationalVersion(System.Reflection.Assembly)">
+            <summary>
+            Gets the informational version of the specified assembly,
+            this differs from <see cref="M:Osmi.Utils.AssemblyUtil.GetVersion(System.Reflection.Assembly)"/>
+            as informational version has no format restriction
+            </summary>
+            <param name="self">The assembly to get informational version from</param>
+            <returns>Informational version</returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetDirectoryName(System.Reflection.Assembly)">
+            <summary>
+            Gets the path to the directory in which the specified assembly locates
+            </summary>
+            <param name="self">The assembly to get the directory</param>
+            <returns>Path to the assembly's directory</returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.ReadAsStream(System.Reflection.Assembly)">
+            <summary>
+            Reads the content of specified assembly as <see cref="T:System.IO.FileStream"/>
+            </summary>
+            <param name="self">The assembly to read from</param>
+            <returns>The <see cref="T:System.IO.FileStream"/> containing the assembly's content</returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetHash(System.Reflection.Assembly,System.Int32)">
+            <summary>
+            Gets the <see cref="T:System.Security.Cryptography.SHA1"/> hash of specified assembly
+            </summary>
+            <param name="self">The assembly to get hash from</param>
+            <param name="length">Length of hash string to be preserved</param>
+            <returns>The <see cref="T:System.Security.Cryptography.SHA1"/> hash string</returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetVersionWithHash(System.Reflection.Assembly,System.Int32)">
+            <summary>
+            Gets the version with <see cref="T:System.Security.Cryptography.SHA1"/> hash of specified assembly,
+            combination of <see cref="M:Osmi.Utils.AssemblyUtil.GetVersion(System.Reflection.Assembly)"/> and <see cref="M:Osmi.Utils.AssemblyUtil.GetHash(System.Reflection.Assembly,System.Int32)"/>
+            </summary>
+            <param name="self">The assembly to get version and hash from</param>
+            <param name="length">Length of hash string to be preserved</param>
+            <returns></returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetInformationalVersionWithHash(System.Reflection.Assembly,System.Int32)">
+            <summary>
+            Gets the informational version with <see cref="T:System.Security.Cryptography.SHA1"/> hash of specified assembly,
+            combination of <see cref="M:Osmi.Utils.AssemblyUtil.GetInformationalVersion(System.Reflection.Assembly)"/> and <see cref="M:Osmi.Utils.AssemblyUtil.GetHash(System.Reflection.Assembly,System.Int32)"/>
+            </summary>
+            <param name="self">The assembly to get informational version and hash from</param>
+            <param name="length">Length of hash string to be preserved</param>
+            <returns></returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetMyVersion">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetVersion(System.Reflection.Assembly)" />
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetMyInformationalVersion">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetInformationalVersion(System.Reflection.Assembly)" />
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetMyHash(System.Int32)">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetHash(System.Reflection.Assembly,System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetMyVersionWithHash(System.Int32)">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetVersionWithHash(System.Reflection.Assembly,System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetMyInformationalVersionWithHash(System.Int32)">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetInformationalVersionWithHash(System.Reflection.Assembly,System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetMyDefaultVersion">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetInformationalVersion(System.Reflection.Assembly)"/>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetMyDefaultVersionWithHash">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetInformationalVersionWithHash(System.Reflection.Assembly,System.Int32)"/>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetManifestResourceStreams(System.Reflection.Assembly)">
+            <summary>
+            Gets all manifest resource streams of specified assembly
+            </summary>
+            <param name="self">The assembly to get manifest resource streams from</param>
+            <returns>Manifest resource streams</returns>
+        </member>
+        <member name="M:Osmi.Utils.AssemblyUtil.GetManifestResourceStreams(System.Reflection.Assembly,System.Func{System.String,System.Boolean})">
+            <inheritdoc cref="M:Osmi.Utils.AssemblyUtil.GetManifestResourceStreams(System.Reflection.Assembly)"/>
+            <param name="self">The assembly to get manifest resource streams from</param>
+            <param name="f">A delegate to filter the resources</param>
+        </member>
+        <member name="M:Osmi.Utils.CloneUtil.CreateMemberwiseClone``1(``0)">
+            <summary>
+            Generic and IL version of <see cref="M:System.Object.MemberwiseClone"/>.
+            Only supports types with parameterless constructor (regardless of
+            visibility).
+            </summary>
+            <typeparam name="T">Source type and return value type</typeparam>
+            <param name="source">Source to be cloned from</param>
+            <returns>
+            New object cloned from <paramref name="source"/>.
+            Its type is same as <paramref name="source"/> regardless of <typeparamref name="T"/>.
+            </returns>
+        </member>
+        <member name="M:Osmi.Utils.EnumerableUtil.Shuffle``1(System.Collections.Generic.IEnumerable{``0})">
+            <inheritdoc cref="M:Osmi.Utils.EnumerableUtil.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)"/>
+            <remarks>Uses <see cref="M:UnityEngine.Random.Range(System.Int32,System.Int32)"/> to create random seed</remarks>
+        </member>
+        <member name="M:Osmi.Utils.EnumerableUtil.Shuffle``1(System.Collections.Generic.IEnumerable{``0},System.Random)">
+            <summary>
+            <para>
+            Uses Durstenfeld version of
+            <seealso href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm">Fisher–Yates shuffle</seealso>,
+            or Knuth shuffle, to shuffle the enumerable
+            </para>
+            <para>
+            The following snippet is a naive implementation of shuffle algorithm:
+            <code>
+            System.Random random = new();
+            enumerable.OrderBy(i => random.Next());
+            </code>
+            It is simple, yet not performant, and is biased. So always prefer this implementation over that one.
+            </para>
+            <para>
+            Further reading: <seealso href="https://blog.codinghorror.com/the-danger-of-naivete/">The Danger of Naïveté</seealso>
+            </para>
+            </summary>
+            <param name="self" />
+            <param name="random">Random number generator</param>
+        </member>
+    </members>
+</doc>

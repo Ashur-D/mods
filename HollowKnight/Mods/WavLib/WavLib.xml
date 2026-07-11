@@ -1,0 +1,1637 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WavLib</name>
+    </assembly>
+    <members>
+        <member name="T:WavLib.Chunk">
+            <summary>
+                General information for every RIFF chunk
+            </summary>
+        </member>
+        <member name="M:WavLib.Chunk.#ctor(System.String)">
+            <summary>
+                Constructor of a chunk
+            </summary>
+            <param name="id">The 4 character identifier</param>
+        </member>
+        <member name="P:WavLib.Chunk.Id">
+            <summary>
+                The 4 character identifier
+            </summary>
+        </member>
+        <member name="P:WavLib.Chunk.Size">
+            <summary>
+                The size of the chunk
+            </summary>
+        </member>
+        <member name="M:WavLib.Chunk.Parse(System.IO.BinaryReader)">
+            <summary>
+                Parses information out of the chunkData
+            </summary>
+            <param name="stream">The data stream</param>
+            <returns>Indication whether or not the parsing was successful</returns>
+        </member>
+        <member name="M:WavLib.Chunk.PeekInfo(System.IO.BinaryReader)">
+            <summary>
+                Peeks into what the next chunk will be
+            </summary>
+            <param name="stream">The data stream</param>
+            <returns>A chunk object that will be the next</returns>
+        </member>
+        <member name="T:WavLib.DataChunk">
+            <summary>
+                The `data` sub chunk of WAVE RIFF data
+            </summary>
+        </member>
+        <member name="M:WavLib.DataChunk.#ctor">
+            <summary>
+                Constructor of the data chunk
+            </summary>
+        </member>
+        <member name="P:WavLib.DataChunk.Samples">
+            <summary>
+                The samples of the data, between -1.0 and 1.0
+            </summary>
+        </member>
+        <member name="M:WavLib.DataChunk.Parse(System.IO.BinaryReader)">
+            <summary>
+                Parses information out of the chunkData
+            </summary>
+            <param name="stream">The data stream</param>
+            <returns>Indication whether or not the parsing was successful</returns>
+        </member>
+        <member name="T:WavLib.FactChunk">
+            <summary>
+                The `fact` sub chunk of WAVE RIFF data
+            </summary>
+        </member>
+        <member name="M:WavLib.FactChunk.#ctor">
+            <summary>
+                Constructor of the fact chunk
+            </summary>
+        </member>
+        <member name="P:WavLib.FactChunk.AmountTotalSamples">
+            <summary>
+                The total amount of samples per channel in the audio file
+            </summary>
+        </member>
+        <member name="M:WavLib.FactChunk.Parse(System.IO.BinaryReader)">
+            <summary>
+                Parses information out of the chunkData
+            </summary>
+            <param name="stream">The data stream</param>
+            <returns>Indication whether or not the parsing was successful</returns>
+        </member>
+        <member name="T:WavLib.FmtChunk">
+            <summary>
+                The `fmt ` sub chunk of WAVE RIFF data
+            </summary>
+        </member>
+        <member name="M:WavLib.FmtChunk.#ctor">
+            <summary>
+                Constructor of the fmt chunk
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.AudioFormat">
+            <summary>
+                The format of the audio data
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.NumChannels">
+            <summary>
+                The amount of channels the audio data covers
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.SampleRate">
+            <summary>
+                The sample rate of the audio data
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.ByteRate">
+            <summary>
+                `SampleRate * NumChannels * (BitsPerSample / 8)`
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.BlockAlign">
+            <summary>
+                `NumChannels * (BitsPerSample / 8)`
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.BitsPerSample">
+            <summary>
+                The bit depth each sample has
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.ExtraParamSize">
+            <summary>
+                Contains the amount of extra parameters.
+                Not present when uncompressed format
+            </summary>
+        </member>
+        <member name="P:WavLib.FmtChunk.ExtraParams">
+            <summary>
+                Contains the extra parameters.
+                Not present when uncompressed format
+            </summary>
+        </member>
+        <member name="M:WavLib.FmtChunk.Parse(System.IO.BinaryReader)">
+            <summary>
+                Parses information out of the chunkData
+            </summary>
+            <param name="stream">The data stream</param>
+            <returns>Indication whether or not the parsing was successful</returns>
+        </member>
+        <member name="T:WavLib.Format">
+            <summary>
+                All the formats that are supported by RIFF WAVE
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Unknown">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Uncompressed">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Adpcm">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IeeeFloat">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Vselp">
+            <summary>
+                Compaq Computer Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IbmCvsd">
+            <summary>
+                IBM Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Alaw">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Mulaw">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Dts">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Drm">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Wmavoice9">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Wmavoice10">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.OkiAdpcm">
+            <summary>
+                OKI
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DviAdpcm">
+            <summary>
+                Intel Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ImaAdpcm">
+            <summary>
+                Intel Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MediaspaceAdpcm">
+            <summary>
+                Videologic
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SierraAdpcm">
+            <summary>
+                Sierra Semiconductor Corp
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.G723Adpcm">
+            <summary>
+                Antex Electronics Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Digistd">
+            <summary>
+                DSP Solutions, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Digifix">
+            <summary>
+                DSP Solutions, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DialogicOkiAdpcm">
+            <summary>
+                Dialogic Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MediavisionAdpcm">
+            <summary>
+                Media Vision, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.CuCodec">
+            <summary>
+                Hewlett Packard Company
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.HpDynVoice">
+            <summary>
+                Hewlett Packard Company
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.YamahaAdpcm">
+            <summary>
+                Yamaha Corporation of America
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Sonarc">
+            <summary>
+                Speech Compression
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DspgroupTruespeech">
+            <summary>
+                DSP Group, Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Echosc1">
+            <summary>
+                Echo Speech Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.AudiofileAf36">
+            <summary>
+                Virtual Music, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Aptx">
+            <summary>
+                Audio Processing Technology
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.AudiofileAf10">
+            <summary>
+                Virtual Music, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Prosody1612">
+            <summary>
+                Aculab plc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Lrc">
+            <summary>
+                Merging Technologies S.A.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DolbyAc2">
+            <summary>
+                Dolby Laboratories
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Gsm610">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Msnaudio">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.AntexAdpcme">
+            <summary>
+                Antex Electronics Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ControlResVqlpc">
+            <summary>
+                Control Resources Limited
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Digireal">
+            <summary>
+                DSP Solutions, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Digiadpcm">
+            <summary>
+                DSP Solutions, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ControlResCr10">
+            <summary>
+                Control Resources Limited
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NmsVbxadpcm">
+            <summary>
+                Natural MicroSystems
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.CsImaadpcm">
+            <summary>
+                Crystal Semiconductor IMA ADPCM
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Echosc3">
+            <summary>
+                Echo Speech Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RockwellAdpcm">
+            <summary>
+                Rockwell International
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RockwellDigitalk">
+            <summary>
+                Rockwell International
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Xebec">
+            <summary>
+                Xebec Multimedia Solutions Limited
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.G721Adpcm">
+            <summary>
+                Antex Electronics Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.G728Celp">
+            <summary>
+                Antex Electronics Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Msg723">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IntelG7231">
+            <summary>
+                Intel Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IntelG729">
+            <summary>
+                Intel Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SharpG726">
+            <summary>
+                Sharp
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Mpeg">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Rt24">
+            <summary>
+                InSoft, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Pac">
+            <summary>
+                InSoft, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Mpeglayer3">
+            <summary>
+                ISO/MPEG Layer3 Format Tag
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LucentG723">
+            <summary>
+                Lucent Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Cirrus">
+            <summary>
+                Cirrus Logic
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Espcm">
+            <summary>
+                ESS Technology
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Voxware">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.CanopusAtrac">
+            <summary>
+                Canopus, co., Ltd.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.G726Adpcm">
+            <summary>
+                APICOM
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.G722Adpcm">
+            <summary>
+                APICOM
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Dsat">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DsatDisplay">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareByteAligned">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareAc8">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareAc10">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareAc16">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareAc20">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareRt24">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareRt29">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareRt29Hw">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareVr12">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareVr18">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareTq40">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareSc3">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareSc31">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Softsound">
+            <summary>
+                Softsound, Ltd.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareTq60">
+            <summary>
+                Voxware Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Msrt24">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.G729A">
+            <summary>
+                AT&amp;T Labs, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MviMvi2">
+            <summary>
+                Motion Pixels
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DfG726">
+            <summary>
+                DataFusion Systems (Pty) (Ltd)
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DfGsm610">
+            <summary>
+                DataFusion Systems (Pty) (Ltd)
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Isiaudio">
+            <summary>
+                Iterated Systems, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Onlive">
+            <summary>
+                OnLive! Technologies, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MultitudeFtSx20">
+            <summary>
+                Multitude Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.InfocomItsG721Adpcm">
+            <summary>
+                Infocom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ConvediaG729">
+            <summary>
+                Convedia Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Congruency">
+            <summary>
+                Congruency Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Sbc24">
+            <summary>
+                Siemens Business Communications Sys
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DolbyAc3Spdif">
+            <summary>
+                Sonic Foundry
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MediasonicG723">
+            <summary>
+                MediaSonic
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Prosody8Kbps">
+            <summary>
+                Aculab plc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ZyxelAdpcm">
+            <summary>
+                ZyXEL Communications, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.PhilipsLpcbb">
+            <summary>
+                Philips Speech Processing
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Packed">
+            <summary>
+                Studer Professional Audio AG
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MaldenPhonytalk">
+            <summary>
+                Malden Electronics Ltd.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RacalRecorderGsm">
+            <summary>
+                Racal recorders
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RacalRecorderG720A">
+            <summary>
+                Racal recorders
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RacalRecorderG7231">
+            <summary>
+                Racal recorders
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RacalRecorderTetraAcelp">
+            <summary>
+                Racal recorders
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NecAac">
+            <summary>
+                NEC Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RawAac1">
+            <summary>
+                For Raw AAC, with format block AudioSpecificConfig() (as defined by MPEG 4), that follows WAVEFORMATEX
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RhetorexAdpcm">
+            <summary>
+                Rhetorex Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Irat">
+            <summary>
+                BeCubed Software Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VivoG723">
+            <summary>
+                Vivo Software
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VivoSiren">
+            <summary>
+                Vivo Software
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.PhilipsCelp">
+            <summary>
+                Philips Speech Processing
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.PhilipsGrundig">
+            <summary>
+                Philips Speech Processing
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DigitalG723">
+            <summary>
+                Digital Equipment Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SanyoLdAdpcm">
+            <summary>
+                Sanyo Electric Co., Ltd.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SiprolabAceplnet">
+            <summary>
+                Sipro Lab Telecom Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SiprolabAcelp4800">
+            <summary>
+                Sipro Lab Telecom Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SiprolabAcelp8V3">
+            <summary>
+                Sipro Lab Telecom Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SiprolabG729">
+            <summary>
+                Sipro Lab Telecom Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SiprolabG729A">
+            <summary>
+                Sipro Lab Telecom Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SiprolabKelvin">
+            <summary>
+                Sipro Lab Telecom Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoiceageAmr">
+            <summary>
+                VoiceAge Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.G726AdpcmAlt">
+            <summary>
+                Dictaphone Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DictaphoneCelp68">
+            <summary>
+                Dictaphone Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DictaphoneCelp54">
+            <summary>
+                Dictaphone Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.QualcommPurevoice">
+            <summary>
+                Qualcomm, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.QualcommHalfrate">
+            <summary>
+                Qualcomm, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Tubgsm">
+            <summary>
+                Ring Zero Systems, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Msaudio1">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Wmaudio2">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Wmaudio3">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.WmaudioLossless">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Wmaspdif">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.UnisysNapAdpcm">
+            <summary>
+                Unisys Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.UnisysNapUlaw">
+            <summary>
+                Unisys Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.UnisysNapAlaw">
+            <summary>
+                Unisys Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.UnisysNap16K">
+            <summary>
+                Unisys Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SycomAcmSyc008">
+            <summary>
+                SyCom Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SycomAcmSyc701G726L">
+            <summary>
+                SyCom Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SycomAcmSyc701Celp54">
+            <summary>
+                SyCom Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SycomAcmSyc701Celp68">
+            <summary>
+                SyCom Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.KnowledgeAdventureAdpcm">
+            <summary>
+                Knowledge Adventure, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.FraunhoferIisMpeg2Aac">
+            <summary>
+                Fraunhofer IIS
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DtsDs">
+            <summary>
+                Digital Theatre Systems, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.CreativeAdpcm">
+            <summary>
+                Creative Labs, Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.CreativeFastspeech8">
+            <summary>
+                Creative Labs, Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.CreativeFastspeech10">
+            <summary>
+                Creative Labs, Inc
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.UherAdpcm">
+            <summary>
+                UHER informatic GmbH
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.UleadDvAudio">
+            <summary>
+                Ulead Systems, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.UleadDvAudio1">
+            <summary>
+                Ulead Systems, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Quarterdeck">
+            <summary>
+                Quarterdeck Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IlinkVc">
+            <summary>
+                I link Worldwide
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RawSport">
+            <summary>
+                Aureal Semiconductor
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.EsstAc3">
+            <summary>
+                ESS Technology, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.GenericPassthru">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IpiHsx">
+            <summary>
+                Interactive Products, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IpiRpelp">
+            <summary>
+                Interactive Products, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Cs2">
+            <summary>
+                Consistent Software
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SonyScx">
+            <summary>
+                Sony Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SonyScy">
+            <summary>
+                Sony Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SonyAtrac3">
+            <summary>
+                Sony Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SonySpc">
+            <summary>
+                Sony Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.TelumAudio">
+            <summary>
+                Telum Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.TelumIaAudio">
+            <summary>
+                Telum Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NorcomVoiceSystemsAdpcm">
+            <summary>
+                Norcom Electronics Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.FmTownsSnd">
+            <summary>
+                Fujitsu Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Micronas">
+            <summary>
+                Micronas Semiconductors, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MicronasCelp833">
+            <summary>
+                Micronas Semiconductors, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.BtvDigital">
+            <summary>
+                Brooktree Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IntelMusicCoder">
+            <summary>
+                Intel Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IndeoAudio">
+            <summary>
+                Ligos
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.QdesignMusic">
+            <summary>
+                QDesign Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.On2Vp7Audio">
+            <summary>
+                On2 Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.On2Vp6Audio">
+            <summary>
+                On2 Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VmeVmpcm">
+            <summary>
+                AT&amp;T Labs, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Tpc">
+            <summary>
+                AT&amp;T Labs, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LightwaveLossless">
+            <summary>
+                Clearjump
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Oligsm">
+            <summary>
+                Ing C. Olivetti &amp; C., S.p.A.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Oliadpcm">
+            <summary>
+                Ing C. Olivetti &amp; C., S.p.A.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Olicelp">
+            <summary>
+                Ing C. Olivetti &amp; C., S.p.A.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Olisbc">
+            <summary>
+                Ing C. Olivetti &amp; C., S.p.A.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Oliopr">
+            <summary>
+                Ing C. Olivetti &amp; C., S.p.A.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LhCodec">
+            <summary>
+                Lernout &amp; Hauspie
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LhCodecCelp">
+            <summary>
+                Lernout &amp; Hauspie
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LhCodecSbc8">
+            <summary>
+                Lernout &amp; Hauspie
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LhCodecSbc12">
+            <summary>
+                Lernout &amp; Hauspie
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LhCodecSbc16">
+            <summary>
+                Lernout &amp; Hauspie
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Norris">
+            <summary>
+                Norris Communications, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Isiaudio2">
+            <summary>
+                ISIAudio
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SoundspaceMusicompress">
+            <summary>
+                AT&amp;T Labs, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MpegAdtsAac">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MpegRawAac">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MpegLoas">
+            <summary>
+                Microsoft Corporation (MPEG 4 Audio Transport Streams (LOAS/LATM)
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NokiaMpegAdtsAac">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NokiaMpegRawAac">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VodafoneMpegAdtsAac">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VodafoneMpegRawAac">
+            <summary>
+                Microsoft Corporation
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.MpegHeaac">
+            <summary>
+                Microsoft Corporation (MPEG 2 AAC or MPEG 4 HE AAC v1/v2 streams with any payload (ADTS, ADIF, LOAS/LATM, RAW).
+                Format block includes MP4 AudioSpecificConfig() see HEAACWAVEFORMAT below
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoxwareRt24Speech">
+            <summary>
+                Voxware Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SonicfoundryLossless">
+            <summary>
+                Sonic Foundry
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.InningsTelecomAdpcm">
+            <summary>
+                Innings Telecom Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LucentSx8300P">
+            <summary>
+                Lucent Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LucentSx5363S">
+            <summary>
+                Lucent Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Cuseeme">
+            <summary>
+                CUSeeMe
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NtcsoftAlf2CmAcm">
+            <summary>
+                NTCSoft
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Dvm">
+            <summary>
+                FAST Multimedia AG
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Dts2">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Makeavis">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DivioMpeg4Aac">
+            <summary>
+                Divio, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NokiaAdaptiveMultirate">
+            <summary>
+                Nokia
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.DivioG726">
+            <summary>
+                Divio, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LeadSpeech">
+            <summary>
+                LEAD Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.LeadVorbis">
+            <summary>
+                LEAD Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.WavpackAudio">
+            <summary>
+                xiph.org
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Alac">
+            <summary>
+                Apple Lossless
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.OggVorbisMode1">
+            <summary>
+                Ogg Vorbis
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.OggVorbisMode2">
+            <summary>
+                Ogg Vorbis
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.OggVorbisMode3">
+            <summary>
+                Ogg Vorbis
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.OggVorbisMode1Plus">
+            <summary>
+                Ogg Vorbis
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.OggVorbisMode2Plus">
+            <summary>
+                Ogg Vorbis
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.OggVorbisMode3Plus">
+            <summary>
+                Ogg Vorbis
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ThreecomNbx">
+            <summary>
+                3COM Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Opus">
+            <summary>
+                Opus
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.FaadAac">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.AmrNb">
+            <summary>
+                AMR Narrowband
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.AmrWb">
+            <summary>
+                AMR Wideband
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.AmrWp">
+            <summary>
+                AMR Wideband Plus
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.GsmAmrCbr">
+            <summary>
+                GSMA/3GPP
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.GsmAmrVbrSid">
+            <summary>
+                GSMA/3GPP
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ComverseInfosysG7231">
+            <summary>
+                Comverse Infosys
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ComverseInfosysAvqsbc">
+            <summary>
+                Comverse Infosys
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ComverseInfosysSbc">
+            <summary>
+                Comverse Infosys
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SymbolG729A">
+            <summary>
+                Symbol Technologies
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VoiceageAmrWb">
+            <summary>
+                VoiceAge Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.IngenientG726">
+            <summary>
+                Ingenient Technologies, Inc.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Mpeg4Aac">
+            <summary>
+                ISO/MPEG 4
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.EncoreG726">
+            <summary>
+                Encore Software
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.ZollAsao">
+            <summary>
+                ZOLL Medical Corp.
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.SpeexVoice">
+            <summary>
+                xiph.org
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VianixMasc">
+            <summary>
+                Vianix LLC
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Wm9SpectrumAnalyzer">
+            <summary>
+                Microsoft
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.WmfSpectrumAnayzer">
+            <summary>
+                Microsoft
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Gsm610Alt">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Gsm620">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Gsm660">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Gsm690">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.GsmAdaptiveMultirateWb">
+            <summary>
+                ToDo: Unknown
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.PolycomG722">
+            <summary>
+                Polycom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.PolycomG728">
+            <summary>
+                Polycom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.PolycomG729A">
+            <summary>
+                Polycom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.PolycomSiren">
+            <summary>
+                Polycom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.GlobalIpIlbc">
+            <summary>
+                Global IP
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.RadiotimeTimeShiftRadio">
+            <summary>
+                RadioTime
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NiceAca">
+            <summary>
+                Nice Systems
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NiceAdpcm">
+            <summary>
+                Nice Systems
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordG721">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordG726">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordG7221">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordG728">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordG729">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordG729A">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordG7231">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.VocordLbc">
+            <summary>
+                Vocord Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.NiceG728">
+            <summary>
+                Nice Systems
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.FraceTelecomG729">
+            <summary>
+                France Telecom
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Codian">
+            <summary>
+                CODIAN
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Flac">
+            <summary>
+                flac.sourceforge.net
+            </summary>
+        </member>
+        <member name="F:WavLib.Format.Extensible">
+            <summary>
+                Microsoft
+            </summary>
+        </member>
+        <member name="T:WavLib.RiffChunk">
+            <summary>
+                The main chunk of the RIFF file format
+            </summary>
+        </member>
+        <member name="M:WavLib.RiffChunk.#ctor">
+            <summary>
+                Constructor of the data chunk
+            </summary>
+        </member>
+        <member name="P:WavLib.RiffChunk.Format">
+            <summary>
+                The RIFF format
+            </summary>
+        </member>
+        <member name="M:WavLib.RiffChunk.Parse(System.IO.BinaryReader)">
+            <summary>
+                Parses information out of the chunkData
+            </summary>
+            <param name="stream">The data stream</param>
+            <returns>Indication whether or not the parsing was successful</returns>
+        </member>
+        <member name="T:WavLib.SampleConverters.AlawConverter">
+            <summary>
+                A converter for Alaw-encoded audio data
+            </summary>
+        </member>
+        <member name="M:WavLib.SampleConverters.AlawConverter.ConvertSamples(System.IO.BinaryReader,System.Int32)">
+            <summary>
+                Converts the binary samples into a float array
+            </summary>
+            <param name="stream">The binary samples</param>
+            <param name="bytesPerSample">How many bytes each sample has</param>
+            <returns>An array of floats between -1.0 and 1.0</returns>
+        </member>
+        <member name="T:WavLib.SampleConverters.BaseConverter">
+            <summary>
+                A converter base class
+            </summary>
+        </member>
+        <member name="T:WavLib.SampleConverters.ExtensibleConverter">
+            <summary>
+                A converter for uncompressed pcm audio data
+            </summary>
+        </member>
+        <member name="M:WavLib.SampleConverters.ExtensibleConverter.ConvertSamples(System.IO.BinaryReader,System.Int32)">
+            <summary>
+                Converts the binary samples into a float array
+            </summary>
+            <param name="stream">The binary samples</param>
+            <param name="bytesPerSample">How many bytes each sample has</param>
+            <returns>An array of floats between -1.0 and 1.0</returns>
+        </member>
+        <member name="T:WavLib.SampleConverters.IConverter">
+            <summary>
+                A converter interface
+            </summary>
+        </member>
+        <member name="M:WavLib.SampleConverters.IConverter.ConvertSamples(System.IO.BinaryReader,System.Int32)">
+            <summary>
+                Converts the binary samples into a float array
+            </summary>
+            <param name="stream">The binary samples</param>
+            <param name="bytesPerSample">How many bytes each sample has</param>
+            <returns>An array of floats between -1.0 and 1.0</returns>
+        </member>
+        <member name="T:WavLib.SampleConverters.IeeeFloatConverter">
+            <summary>
+                A converter for Ieee-float-encoded audio data
+            </summary>
+        </member>
+        <member name="M:WavLib.SampleConverters.IeeeFloatConverter.ConvertSamples(System.IO.BinaryReader,System.Int32)">
+            <summary>
+                Converts the binary samples into a float array
+            </summary>
+            <param name="stream">The binary samples</param>
+            <param name="bytesPerSample">How many bytes each sample has</param>
+            <returns>An array of floats between -1.0 and 1.0</returns>
+        </member>
+        <member name="T:WavLib.SampleConverters.MulawConverter">
+            <summary>
+                A converter for Mulaw-encoded audio data
+            </summary>
+        </member>
+        <member name="M:WavLib.SampleConverters.MulawConverter.ConvertSamples(System.IO.BinaryReader,System.Int32)">
+            <summary>
+                Converts the binary samples into a float array
+            </summary>
+            <param name="stream">The binary samples</param>
+            <param name="bytesPerSample">How many bytes each sample has</param>
+            <returns>An array of floats between -1.0 and 1.0</returns>
+        </member>
+        <member name="T:WavLib.SampleConverters.UncompressedConverter">
+            <summary>
+                A converter for uncompressed pcm audio data
+            </summary>
+        </member>
+        <member name="M:WavLib.SampleConverters.UncompressedConverter.ConvertSamples(System.IO.BinaryReader,System.Int32)">
+            <summary>
+                Converts the binary samples into a float array
+            </summary>
+            <param name="stream">The binary samples</param>
+            <param name="bytesPerSample">How many bytes each sample has</param>
+            <returns>An array of floats between -1.0 and 1.0</returns>
+        </member>
+        <member name="T:WavLib.WavData">
+            <summary>
+            The entire RIFF WAVE data
+            </summary>
+        </member>
+        <member name="P:WavLib.WavData.MainChunk">
+            <summary>
+            The main riff chunk
+            </summary>
+        </member>
+        <member name="P:WavLib.WavData.FactChunk">
+            <summary>
+            The fact chunk
+            </summary>
+        </member>
+        <member name="P:WavLib.WavData.FormatChunk">
+            <summary>
+            The format chunk
+            </summary>
+        </member>
+        <member name="P:WavLib.WavData.SoundDataChunk">
+            <summary>
+            The sound data chunk
+            </summary>
+        </member>
+        <member name="M:WavLib.WavData.Parse(System.IO.Stream,System.Action{System.String})">
+            <summary>
+            Parses the byte data of a wav file into this class structure
+            </summary>
+            <param name="stream">The data stream</param>
+            <param name="loggingCallback">Optional callback for logging information</param>
+        </member>
+        <member name="M:WavLib.WavData.GetSamples">
+            <summary>
+            Returns the samples of the wav normalized between -1.0 and 1.0
+            </summary>
+            <returns>The samples</returns>
+        </member>
+        <member name="M:WavLib.WavData.Inspect(System.IO.Stream,System.Action{System.String})">
+            <summary>
+            Inspects a wav file
+            </summary>
+            <param name="stream">The data stream</param>
+            <param name="loggingCallback">Callback for logging information</param>
+        </member>
+    </members>
+</doc>
